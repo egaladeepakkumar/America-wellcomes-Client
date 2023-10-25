@@ -1,0 +1,35 @@
+<header class="p-3 text-bg-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+       <strong style="color: red; font-size:24px;">AMERICA WELCOMES</strong>
+      </a>
+      
+      <ul class="nav col-12 col-lg-auto me-lg-auto ml-5 px-5 mb-2 justify-content-center mb-md-0">
+      <ng-container *ngIf="authService.currentUser$ | async">
+          <li><a routerLink="/home" class="nav-link px-2 text-white">Home</a></li>
+          <li><a routerLink="/about-us" class="nav-link px-2 text-white">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Exams</a>
+            <div class="dropdown-menu">
+                <a routerLink="/uni" class="dropdown-item">GRE</a>
+                <a routerLink="/uni" class="dropdown-item">TOEFL</a>
+                <a routerLink="/uni" class="dropdown-item">IELTS</a>
+            </div>
+          </li>
+          <li><a routerLink="/tech" class="nav-link px-2 text-white">Tech</a></li>
+          <!-- <li><a routerLink="/uni"  class="nav-link px-2 text-white">Universities</a></li> -->
+      </ng-container>
+    </ul>
+
+    <div class="text-end" *ngIf="(authService.currentUser$ | async) as user">
+      <strong style="margin-right: 10px;">Welcome, {{ user.fullName.split(' ')[0] }}</strong>
+      <button type="button" routerLink="/register" class="btn btn-danger" (click)="logout()">Log Out</button>
+    </div>
+      <div class="text-end" *ngIf="!(authService.currentUser$ | async)">
+        <button type="button" routerLink="/login" class="btn btn-outline-primary me-2">Log in</button>
+        <button type="button" routerLink="/register" class="btn btn-danger">Sign up</button>
+      </div>
+    </div>
+  </div>
+</header>

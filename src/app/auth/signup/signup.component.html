@@ -1,0 +1,110 @@
+<div class="row my-5 justify-content-center">
+  <div class="col-md-6">
+    <div class="card bg-body-tertiary rounded shadow-sm">
+      <div class="card-header py-3">
+        <strong style="font-size: 18px;">
+          Sign Up Now
+        </strong>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-md-6">
+              <app-text-input [formControl]="$any(form.controls['fullName'])" [label]="'Full Name'" [placeholder]="'Enter your name'"></app-text-input>
+            </div>
+            <div class="col-md-6">
+              <app-text-input [formControl]="$any(form.controls['email'])" [label]="'Email Address'" [placeholder]="'Enter your email'"></app-text-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-text-input [formControl]="$any(form.controls['password'])" [label]="'Password'" [type]="'password'" [placeholder]="'Enter your password'">
+              </app-text-input>
+            </div>
+            <div class="col-md-6">
+              <app-text-input [formControl]="$any(form.controls['confirmPassword'])" 
+              [label]="'Confirm Password'" [type]="'password'"
+              [placeholder]="'Confirm your password'">
+              </app-text-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="gender" class="form-label"><strong>Gender</strong></label>
+                <select id="gender" class="form-control" formControlName="gender">
+                  <option value="Male"> Male</option>
+                  <option value="Female"> Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="caste" class="form-label"><strong>Caste</strong></label>
+                <select id="caste" class="form-control" formControlName="caste">
+                  <option value="Open"> Open</option>
+                  <option value="Backward"> Backward</option>
+                  <option value="Schedule-Mala"> Schedule - Mala</option>
+                  <option value="Schedule-Non Mala"> Schedule - Non Mala</option>
+                  <option value="Schedule Tribe">Schedule Tribe</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="dateOfBirth" class="form-label"><strong>Date of Birth</strong></label>
+                <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input type="file" (change)="onFileSelected($event)" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="country" class="form-label"><strong>Country</strong></label>
+              <select id="country" class="form-control" formControlName="country">
+                <option value="India"> India</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <app-text-input [formControl]="$any(form.controls['phoneNumber'])" 
+              [label]="'Phone Number'" [type]="'text'"
+              [placeholder]="'Enter your phone number'">
+              </app-text-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-text-input [formControl]="$any(form.controls['otherPhoneNumber'])" 
+              [label]="'Alternate Phone Number'" [type]="'text'"
+              [placeholder]="'Enter your other phone number'">
+              </app-text-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <app-text-input [formControl]="$any(form.controls['address'])" [label]="'Address'" [placeholder]="'Enter your address'"></app-text-input>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="d-grid gap-2">
+          <button 
+          type="button" 
+          class="btn btn-md btn-danger px-5 py-2 float-right" (click)="submit()">Submit</button>
+          <button 
+          type="button" 
+          routerLink="/login"
+          class="btn btn-md btn-outline-dark px-5 py-2">Already have an account? Log In</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
